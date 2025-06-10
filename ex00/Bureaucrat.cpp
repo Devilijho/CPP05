@@ -2,20 +2,17 @@
 
 Bureaucrat::Bureaucrat(int grade)
 {
-	if (grade > 150 || grade < 1)
-		throw (Bureaucrat(grade));
+	if (grade > 150)
+		throw (GradeTooLowException());
+	else if (grade < 1)
+		throw (GradeTooHighException());
 	std::cout << "A bureaucrat was born" << std::endl;
 	this->grade = grade;
 }
 
-const char *Bureaucrat::what() const throw()
-{
-	if (this->grade > 150)
-		return ("Bureaucrat::GradeTooLowException");
-	else if (this->grade < 1)
-		return ("Bureaucrat::GradeTooHighException");
-	return ("a?");
-};
+const char *Bureaucrat::GradeTooHighException::what() const throw(){ return ("Bureaucrat::GradeTooHighException"); };
+
+const char *Bureaucrat::GradeTooLowException::what() const throw(){ return ("Bureaucrat::GradeTooLowException"); };
 
 int Bureaucrat::getGrade(){ return (this->grade); }
 
@@ -25,7 +22,7 @@ void Bureaucrat::incrementGrade(){ this->grade--; }
 
 void Bureaucrat::decrementGrade(){ this->grade++; }
 
-Bureaucrat::~Bureaucrat() throw()
+Bureaucrat::~Bureaucrat()
 {
 	std::cout << "A bureaucrat died" << std::endl;
 }

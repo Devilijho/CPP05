@@ -25,7 +25,18 @@ int	main()
 		}
 		catch (std::exception &e)
 		{
-			e.what();
+			std::cout << e.what() << std::endl;
+		}
+	}
+	{
+		std::cout << "------------------------------------------------------------" << std::endl;
+		try
+		{
+			Bureaucrat a(151);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
 		}
 	}
 

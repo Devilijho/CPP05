@@ -6,18 +6,25 @@
 #include <string>
 #include <iostream>
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
 	public:
 		Bureaucrat(int grade);
-		const char* what() const throw();
 		int getGrade();
 		std::string getName();
 		void incrementGrade();
 		void decrementGrade();
-		virtual ~Bureaucrat() throw();
-
-
+		~Bureaucrat();
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char *what() const throw();
+		};
 	private:
 		const std::string	name;
 		int					grade;
