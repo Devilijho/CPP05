@@ -1,4 +1,4 @@
-sources = main.cpp Bureaucrat.cpp
+sources = main.cpp Bureaucrat.cpp Form.cpp
 
 objects = $(sources:.cpp=.o)
 
@@ -6,7 +6,7 @@ cc = c++
 
 cflags = -Wall -Wextra -Werror -std=c++98
 
-NAME = bureau
+NAME = forms
 
 $(NAME): $(objects)
 	$(cc) $(cflags) -o $(NAME) $(objects)

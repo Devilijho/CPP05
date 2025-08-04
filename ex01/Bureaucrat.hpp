@@ -3,6 +3,7 @@
 #include <ostream>
 #include <string>
 #include <iostream>
+#include "Form.hpp"
 
 #define SUCCESS 0
 #define ERROR 1
@@ -10,6 +11,7 @@
 class Bureaucrat
 {
 	public:
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat &operator=(const Bureaucrat &other);
@@ -17,7 +19,7 @@ class Bureaucrat
 		std::string getName() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm();
+		void signForm(Form &form);
 		~Bureaucrat();
 		class GradeTooHighException : public std::exception
 		{
