@@ -6,11 +6,11 @@ Form::Form(): name("defaultForm"), gradeToSign(75), gradeToExecute(75), isSigned
 Form::Form(std::string name, int gradeToSign, int gradeToExecute, bool isSigned)
 : name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute), isSigned(isSigned)
 {
-	std::cout << "Form created successfully" << std::endl;
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw (GradeTooLowException());
 	else if (gradeToSign < 1 || gradeToExecute < 1)
 		throw (GradeTooHighException());
+	std::cout << "Form created successfully" << std::endl;
 }
 
 Form::Form(const Form &other):
