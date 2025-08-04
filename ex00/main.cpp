@@ -33,6 +33,21 @@ int	main()
 			std::cout << e.what() << std::endl;
 		}
 	}
-
+	{
+		std::cout << "------------------------------------------------------------" << std::endl;
+		std::cout << "TEST OPERATOR << OVERLOAD" << std::endl;
+		Bureaucrat a(3);
+		std::cout << a;
+	}
+	{
+		std::cout << "------------------------------------------------------------" << std::endl;
+		std::cout << "TEST INSTANCE ERROR" << std::endl;
+		Bureaucrat c(151);
+	}
+	{
+		std::cout << "------------------------------------------------------------" << std::endl;
+		std::cout << "TEST INSTANCE ERROR" << std::endl;
+		Bureaucrat b(0);
 	return (SUCCESS);
+	}
 }

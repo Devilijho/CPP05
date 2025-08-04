@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ostream>
 #define SUCCESS 0
 #define ERROR 1
 
@@ -27,8 +28,9 @@ class Bureaucrat
 			public:
 				const char *what() const throw();
 		};
-		std::ostream &operator<<(const Bureaucrat &bureaucrat);
 	private:
 		const std::string	name;
 		int					grade;
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

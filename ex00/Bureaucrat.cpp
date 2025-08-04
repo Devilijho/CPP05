@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include <ostream>
 
 Bureaucrat::Bureaucrat(int grade) : name("default")
 {
@@ -31,11 +32,10 @@ void Bureaucrat::incrementGrade(){ this->grade--; }
 
 void Bureaucrat::decrementGrade(){ this->grade++; }
 
-std::ostream &Bureaucrat::operator<<(const Bureaucrat &bureaucrat)
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
 {
-	// std::ostream
-	// std::cin << bureaucrat.name << " bureaucrat grade " << bureaucrat.grade << std::endl;
-    // return ;
+	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
+    return out;
 }
 
 Bureaucrat::~Bureaucrat()
