@@ -1,7 +1,10 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-Bureaucrat::Bureaucrat(): name("default"), grade(75){}
+Bureaucrat::Bureaucrat(): name("default"), grade(75)
+{
+	std::cout << "A bureaucrat was born" << std::endl;
+}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
@@ -50,6 +53,19 @@ void Bureaucrat::signForm(AForm &form)
 	catch (std::exception &e)
 	{
 		std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << *this << " couldn't execute " << form << " because " << e.what() << std::endl;
 	}
 }
 
